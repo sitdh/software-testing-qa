@@ -1,0 +1,93 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt,a4paper]{report}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{fontspec,xltxtra,xunicode}
+\setmainfont[Scale=1.22]{TH Sarabun New}
+\XeTeXlinebreaklocale 'th_TH'
+
+% Circle prepare
+\usepackage{tikz}
+\usetikzlibrary{fit,shapes.geometric}
+\renewcommand\tablename{ตารางที่}
+
+\newcounter{nodemarkers}
+\newcommand\circletext[1]{%
+    \tikz[overlay,remember picture] 
+    \node (marker-\arabic{nodemarkers}-a) at (0,1.5ex) {};%
+    #1%
+    \tikz[overlay,remember picture]
+    \node (marker-\arabic{nodemarkers}-b) at (0,0){};%
+    \tikz[overlay,remember picture,inner sep=2pt]
+    \node[draw,ellipse,fit=(marker-\arabic{nodemarkers}-a.center) (marker-\arabic{nodemarkers}-b.center)] {};%
+    \stepcounter{nodemarkers}%
+}
+% ----------------------------
+
+\newcommand{\va}{Valid}
+\newcommand{\iv}{Invalid}
+
+
+\begin{document}
+{\LARGE Equivalence Class}
+
+\begin{eqnarray*}
+    % a >= 1, a <= 200
+    % \geqslant
+    EC_1 &=& \{ a\, |\ a \ge 1, a \le 200 \},\ \va\\
+    EC_2 &=& \{ a\, |\ a > 200 \},\ \iv\\
+    EC_3 &=& \{ a\, |\ a < 1 \},\ \iv\\
+    % 1 <= b <= 200
+    EC_4 &=& \{ b\, |\ b \ge 1, b \le 200 \},\ \va\\
+    EC_5 &=& \{ b\, |\ b > 200 \},\ \iv\\
+    EC_6 &=& \{ b\, |\ b < 1 \},\ \iv\\
+    % 1 <= c <= 200
+    EC_7 &=& \{ c\, |\ c \ge 1, c \le 200 \},\ \va\\
+    EC_8 &=& \{ c\, |\ c > 200 \},\ \iv\\
+    EC_9 &=& \{ c\, |\ c < 1 \},\ \iv\\
+    % 
+    EC_{10} &=& \{ (a, b, c)\ |\ a = b, a = c \},\ \va \\
+    EC_{11} &=& \{ (a, b, c)\ |\ a = b, a \neq c \},\ \va \\
+    EC_{12} &=& \{ (a, b, c)\ |\ a = c, a \neq b \},\ \va \\
+    EC_{13} &=& \{ (a, b, c)\ |\ b = c, a \neq b \},\ \va \\
+    EC_{14} &=& \{ (a, b, c)\ |\ a \neq b, a \neq c, b \neq c \},\ \va \\
+    % a >= b + c
+    EC_{15} &=& \{ (a, b, c)\ |\ a = b + c \},\ \iv \\
+    EC_{16} &=& \{ (a, b, c)\ |\ a > b + c \},\ \iv \\
+    % b >= a + c
+    EC_{17} &=& \{ (a, b, c)\ |\ b = a + c \},\ \iv \\
+    EC_{18} &=& \{ (a, b, c)\ |\ b > a + c \},\ \iv \\
+    % c >= a + b
+    EC_{19} &=& \{ (a, b, c)\ |\ c = b + a \},\ \iv \\
+    EC_{20} &=& \{ (a, b, c)\ |\ c > b + a \},\ \iv\\
+\end{eqnarray*}
+
+\newpage
+
+\begin{table}
+    \centering
+    \caption{กรณีทดสอบตามวิธี Weak Robust}
+    \label{w-r}
+    \begin{tabular}{|c|c|c|c|c|@{\extracolsep{\fill}}{c}|}
+        \hline
+        \multirow{2}{*}{กรณีทดสอบ}   & \multicolumn{3}{l|}{ค่าทดสอบ}      & \multirow{2}{*}{Valid หรือ Invalid}    & \multirow{2}{*}{คลาสที่ได้รับการทดสอบ} \\ \cline{2-4}
+                                    &     a     &     b     &     c     &                               & \\ \hline
+        1   & \circletext{0}    & 100               & 100               & $\iv$     & $EC_3$, $EC_4$, $EC_7$, $EC_{13}$, $EC_{17}$, $EC_{18}$ \\ \hline 
+        2   & 100               & \circletext{0}    & 100               & $\iv$     & $EC_{1}$, $EC_{6}$, $EC_{7}$, $EC_{12}$, $EC_{15}$, $EC_{19}$\\ \hline
+        3   & 100               & 100               & \circletext{0}    & $\iv$     & $EC_{1}$, $EC_{4}$, $EC_{9}$, $EC_{11}$, $EC_{15}$, $EC_{17}$ \\ \hline
+        4   & \circletext{201}  & 100               & 100               & $\iv$     & $EC_{2}$, $EC_{4}$, $EC_{7}$, $EC_{13}$, $EC_{16}$ \\ \hline
+        5   & 100               & \circletext{201}  & 100               & $\iv$     & $EC_{1}$, $EC_{5}$, $EC_{7}$, $EC_{12}$, $EC_{18}$ \\ \hline
+        6   & 100               & 100               & \circletext{201}  & $\iv$     & $EC_{1}$, $EC_{4}$, $EC_{8}$, $EC_{11}$, $EC_{20}$ \\ \hline
+        7   & 3                 & 4                 & 5                 & $\va$     & $EC_{1}$, $EC_{4}$, $EC_{7}$, $EC_{10}$, $EC_{14}$ \\ \hline
+    \end{tabular}
+\end{table}
+
+
+นายสิทธิพงษ์ เหล่าโก้ก \\
+รหัสประจำตัวนิสิต {\bf 5870972621} \\
+สาขาวิชา: {\bf วิศวกรรมซอฟต์แวร์ ภาคนอกเวลา}
+
+\end{document}

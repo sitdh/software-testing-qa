@@ -1,0 +1,118 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt,a4paper]{report}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{fontspec,xltxtra,xunicode}
+\usepackage{pdflscape}
+\usepackage[margin=1.5in]{geometry}
+\setmainfont[Scale=1]{TH Sarabun New}
+\XeTeXlinebreaklocale 'th_TH'
+
+\renewcommand\tablename{ตารางที่}
+
+% Circle prepare
+\usepackage{tikz}
+\usetikzlibrary{fit,shapes.geometric}
+
+\newcounter{nodemarkers}
+\newcommand\circletext[1]{%
+    \tikz[overlay,remember picture] 
+    \node (marker-\arabic{nodemarkers}-a) at (0,1.5ex) {};%
+    #1%
+    \tikz[overlay,remember picture]
+    \node (marker-\arabic{nodemarkers}-b) at (0,0){};%
+    \tikz[overlay,remember picture,inner sep=2pt]
+    \node[draw,ellipse,fit=(marker-\arabic{nodemarkers}-a.center) (marker-\arabic{nodemarkers}-b.center)] {};%
+    \stepcounter{nodemarkers}%
+}
+% ----------------------------
+\newcommand{\sitdh}{นายสิทธิพงษ์ เหล่าโก้ก}
+\newcommand{\sid}{5870972621}
+\newcommand{\department}{ภาควิชาวิศวกรรมคอมพิวเตอร์}
+\newcommand{\branch}{วิศวกรรมซอฟต์แวร์ ภาคนอกเวลา}
+% ----------------------------
+
+% ------- Header & Footer -------
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\sitdh\; \sid}
+\lhead{การบ้านสัปดาห์ที่ 4: Decision table}
+\rfoot{หน้าที่ \thepage}
+
+\begin{document}
+{\LARGE Equivalance classes}
+
+
+\begin{eqnarray*}
+    A_1 &=& \{ age\, |\, age >= 16, age < 25\, \} \\
+    A_2 &=& \{ age\, |\, age >= 25, age < 35\, \} \\
+    A_3 &=& \{ age\, |\, age >= 35, age < 45\, \} \\
+    A_4 &=& \{ age\, |\, age >= 45, age < 60\, \} \\
+    A_5 &=& \{ age\, |\, age >= 60, age < 100\, \} \\
+    P_1 &=& \{ 0, 1 \} \\
+    P_2 &=& \{ 2, 3 \} \\
+    P_3 &=& \{ 4, 5 \} \\
+    P_4 &=& \{ 6, 7 \} \\
+    P_5 &=& \{ 8, 9, 10, 11 \} \\
+    P_6 &=& \{ 12 \} \\
+\end{eqnarray*}
+
+\newpage
+
+\begin{landscape}
+    \begin{table}
+        \centering
+        \caption{Decision table}
+        \label{desct}
+        \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            เงื่อนไข & \multicolumn{15}{c|}{กฎ} \\ \hline \hline
+                                &  1    &  2    &  3    &  4    &  5    &  6    &  7    &  8    &  9    &  10   &  11   &  12   &  13   &   14  &  15     \\ 
+             $C_1$: ช่วงอายุ      & $A_1$ & $A_1$ & $A_1$ & $A_1$ & $A_1$ & $A_1$ & $A_2$ & $A_2$ & $A_2$ & $A_2$ & $A_2$ & $A_2$ & $A_3$ & $A_3$ & $A_3$   \\
+             $C_2$: คะแนน       & $P_1$ & $P_2$ & $P_3$ & $P_4$ & $P_5$ & $P_6$ & $P_1$ & $P_2$ & $P_3$ & $P_4$ & $P_5$ & $P_6$ & $P_1$ & $P_2$ & $P_3$   \\ 
+                                &       &       &       &       &       &       &       &       &       &       &       &       &       &       &         \\ 
+                                &       &       &       &       &       &       &       &       &       &       &       &       &       &       &         \\ \hline
+                                &       &       &       &       &       &       &       &       &       &       &       &       &       &       &         \\ 
+            $A_1$: คำนวณค่าใช้จ่าย & $X$   & $X$   & $X$   & $X$   & $X$   &       & $X$   & $X$   & $X$   & $X$   & $X$   &       & $X$   & $X$   & $X$     \\ 
+            $A_2$: คิดส่วนลด      & $X$   &       &       &       &       &       & $X$   & $X$   &       &       &       &       & $X$   & $X$   & $X$     \\ 
+            $A_3$: ระงับใบขับขี่    &       &       &       &       &       & $X$   &       &       &       &       &       & $X$   &       &       &         \\ \hline 
+
+        \end{tabular}
+    \end{table}
+
+\end{landscape}
+
+\newpage
+
+\begin{landscape}
+    \begin{table}
+        \centering
+        \caption{Decision table (ต่อ)}
+        \label{desct-cont}
+        \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            เงื่อนไข & \multicolumn{15}{c|}{กฎ} \\ \hline \hline
+                                &  16   &  17   &  18   &  19   &  20   &  21   &  22   &  23   &  24   &  25  &  26   &  25   &  26   &   29  &  30      \\ 
+             $C_1$: ช่วงอายุ      & $A_3$ & $A_3$ & $A_3$ & $A_4$ & $A_4$ & $A_4$ & $A_4$ & $A_4$ & $A_4$ & $A_5$ & $A_5$ & $A_5$ & $A_5$ & $A_5$ & $A_5$   \\
+             $C_2$: คะแนน       & $P_4$ & $P_5$ & $P_6$ & $P_1$ & $P_2$ & $P_3$ & $P_4$ & $P_5$ & $P_6$ & $P_1$ & $P_2$ & $P_3$ & $P_4$ & $P_5$ & $P_6$   \\ 
+                                &       &       &       &       &       &       &       &       &       &       &       &       &       &       &         \\ 
+                                &       &       &       &       &       &       &       &       &       &       &       &       &       &       &         \\ \hline
+                                &       &       &       &       &       &       &       &       &       &       &       &       &       &       &         \\ 
+            $A_1$: คำนวณค่าใช้จ่าย & $X$   & $X$   &       & $X$   & $X$   & $X$   & $X$   & $X$   &       & $X$   & $X$   & $X$   & $X$   & $X$   &         \\ 
+            $A_2$: คิดส่วนลด      &       &       &       & $X$   & $X$   & $X$   & $X$   &       &       & $X$   & $X$   & $X$   &       &       &         \\ 
+            $A_3$: ระงับใบขับขี่    &       &       & $X$   &       &       &       &       &       & $X$   &       &       &       &       &       & $X$     \\ \hline 
+
+        \end{tabular}
+    \end{table}
+\end{landscape}
+
+
+% \sitdh \\
+% รหัสประจำตัวนิสิต {\bf \sid} \\
+% สาขาวิชา: {\bf \branch}
+
+\end{document}
