@@ -26,6 +26,8 @@
 \usepackage{multirow}
 % Table
 \usepackage{array}
+% Landscape page
+\usepackage{pdflscape}
 
 \newcommand{\sitdhibong}{สิทธิพงษ์ เหล่าโก้ก}
 \newcommand{\studentid}{5870972621}
@@ -34,6 +36,7 @@
 \newcommand{\myprogram}{แผน ข. ภาคนอกเวลาราชการ}
 \newcommand{\university}{จุฬาลงกรณ์มหาวิทยาลัย}
 \newcommand{\subject}{Software Testing and Quality Assurance}
+\newcommand{\outbound}{Some input value is out of range}
 \newcommand{\nottriangle}{Not a triangle}
 \newcommand{\equ}{Equilateral}
 \newcommand{\sca}{Scalene}
@@ -41,6 +44,7 @@
 
 \renewcommand{\lstlistingname}{รายการที่}
 \renewcommand{\figurename}{ภาพที่}
+\renewcommand{\tablename}{ตารางที่}
 
 \pagestyle{fancy}
 \lhead{\subject}
@@ -70,24 +74,26 @@
 \end{figure}
 
 \newpage
+\begin{landscape}
 % Coverage table
-\section{Coverage table}
+    \section{Coverage table}
 
-\begin{table}[hb!]
-    \caption{Coverage Table}
-    \label{table:coveragetable}
-    \begin{center}
-        % ID, Path, Decisionx3, Inputx3, Expected output = 9 cols
-        \begin{tabular}[p]{ | c | l | *{7}{c|} l |}
-            \hline
-            \multirow{2}{*}{ID} & \multicolumn{1}{c}{\multirow{2}{*}{Path}} & \multicolumn{4}{|c|}{Decision} & \multicolumn{3}{|c|}{Input} & \multicolumn{1}{c|}{\multirow{2}{*}{Expected Output}} \\ \cline{3-8}
-                                & & 5 & 8 & 9 & 11 & a & b & c & \\ \hline
-            1 & 1-2-3-4-5-14        & F & - & - & - & 1   & 200 & 200 & \nottriangle    \\ \hline
-            2 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
-            3 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
-            4 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
-            4 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
-        \end{tabular}
-    \end{center}
-\end{table}
+    \begin{table}[hb!]
+        \caption{Coverage Table}
+        \label{table:coveragetable}
+        \begin{center}
+            % ID, Path, Decisionx3, Inputx3, Expected output = 9 cols
+            \begin{tabular}[p]{ | c | l | *{7}{c|} l |}
+                \hline
+                \multirow{2}{*}{ID} & \multicolumn{1}{c}{\multirow{2}{*}{Path}} & \multicolumn{4}{|c|}{Decision} & \multicolumn{3}{|c|}{Inputs} & \multicolumn{1}{c|}{\multirow{2}{*}{Expected Output}} \\ \cline{3-9}
+                                    &                                           & 5 & 8 & 9 & 11 & a   & b   & c   &                \\ \hline
+                1 & $1-2-3-4-5-6-18$                                            & T & - & - & -  & 201 & 201 & 201 & \outbound      \\ \hline
+                2 & $1-2-3-4-\bar{5}-7-\bar{8}-17-18$                           & F & F & - & -  & 100 & 1   & 1   & \nottriangle   \\ \hline
+                3 & $1-2-3-4-\bar{5}-7-8-9-10-16-17$                            & F & T & T & -  & 100 & 100 & 100 & \equ           \\ \hline
+                4 & $1-2-3-4-\bar{5}-7-8-\bar{9}-11-12-15-16-17-18$             & F & T & F & T  &   3 &   4 &   5 & \sca           \\ \hline
+                5 & $1-2-3-4-\bar{5}-7-8-\bar{9}-\bar{11}-13-14-15-16-17-18$    & F & T & F & F  & 100 & 100 &  50 & \iso           \\ \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+\end{landscape}
 \end{document}
