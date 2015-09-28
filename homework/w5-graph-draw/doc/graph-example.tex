@@ -22,6 +22,8 @@
 
 % Graphic
 \usepackage{graphicx}
+% Multiple row
+\usepackage{multirow}
 
 \newcommand{\sitdhibong}{สิทธิพงษ์ เหล่าโก้ก}
 \newcommand{\studentid}{5870972621}
@@ -41,14 +43,16 @@
 
 % Source code cosmatic
 \lstset{columns=fullflexible,basicstyle=\ttfamily}
-\begin{document}
 
+\begin{document}
+% Triangle check
 \section{โปรแกรมคำนวณรูปสามเหลี่ยม}
 \label{listing:trianglecal}
 จากรายการความต้องการเพื่อตรวจสอบรูปสามเหลี่ยม จะนำมาเขียนโปรแกรมด้วยภาษา JavaScript ดังแสดงให้เห็นด้านล่าง
 \lstinputlisting[style=sitdhcodelisting, title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript]{src/compute.js}
 
 \newpage
+% Control flow graph
 \section{Control flow graph}
 จากโปรแกรมคำนวณรูปสามเหลี่ยมจาก \lstlistingname\, \ref{listing:trianglecal} นำมาวาด Control flow graph ได้ดังรูปด้านล่าง
 
@@ -59,4 +63,14 @@
     \caption{Control flow graph ของโปรแกรมตรวจสอบรูปสามเหลี่ยมจาก \lstlistingname\, \ref{listing:trianglecal}}
 \end{figure}
 
+\newpage
+% Coverage table
+\section{Coverage table}
+
+% ID, Path, Decisionx3, Inputx3, Expected output = 9 cols
+\begin{tabular}[pos]{ |*{8}{c|} l |}
+   \hline
+   \multirow{2}{*}{ID} & \multirow{2}{*}{Path} & \multicolumn{3}{|c|}{Decision} & \multicolumn{3}{|c|}{Input} & \multirow{2}{*}{Expected Output} \\ \cline{3-8}
+                       & & 5 & 6 & 8 & a & b & c & \\ \hline
+\end{tabular}
 \end{document}
