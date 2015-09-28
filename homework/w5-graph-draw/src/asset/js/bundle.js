@@ -16,12 +16,10 @@ $(window).ready(function(){
                 triangleType = 'Equilateral';
             } else if ( a != b && b != c && c != a ) {
                 triangleType = 'Scalene';
-                console.log('b');
             } else {
                 triangleType = 'Isoscalene';
             }
 
-            console.log('a');
         }
 
         $('#log-msg').append('Triangle type: ' + triangleType + "\n");
