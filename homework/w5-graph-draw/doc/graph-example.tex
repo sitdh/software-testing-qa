@@ -20,6 +20,9 @@
     firstline=1
 }
 
+% Graphic
+\usepackage{graphicx}
+
 \newcommand{\sitdhibong}{สิทธิพงษ์ เหล่าโก้ก}
 \newcommand{\studentid}{5870972621}
 \newcommand{\department}{สาขาวิชาวิศวกรรมซอฟต์แวร์}
@@ -29,6 +32,7 @@
 \newcommand{\subject}{Software Testing and Quality Assurance}
 
 \renewcommand{\lstlistingname}{รายการที่}
+\renewcommand{\figurename}{ภาพที่}
 
 \pagestyle{fancy}
 \lhead{\subject}
@@ -48,5 +52,11 @@
 \section{Control flow graph}
 จากโปรแกรมคำนวณรูปสามเหลี่ยมจาก \lstlistingname\, \ref{listing:trianglecal} นำมาวาด Control flow graph ได้ดังรูปด้านล่าง
 
+\begin{figure}[h!]
+    \label{fig:flowgraph}
+    \centering
+    \includegraphics[height=0.8\textheight]{img/graph-testing.eps}
+    \caption{Control flow graph ของโปรแกรมตรวจสอบรูปสามเหลี่ยมจาก \lstlistingname\, \ref{listing:trianglecal}}
+\end{figure}
 
 \end{document}
