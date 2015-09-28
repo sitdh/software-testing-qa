@@ -55,7 +55,46 @@
 \lstset{columns=fullflexible,basicstyle=\ttfamily}
 
 \begin{document}
+    \section{ข้อมูลทั่วไป}
+    \begin{enumerate}
+        \item สคริปต์จะแยกออกเป็น 2 โฟลเดอร์ ได้แก่
+            \begin{enumerate}
+                \item โฟลเดอร์ {\bf normal} สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
+                \item โฟลเดอร์ {\bf instrumented} สำหรับตรวจสอบการทำงานของ Test case
+            \end{enumerate}
+        \item เรียกใช้งานโปรแกรมได้ด้วยการเปิดไฟล์ {\bf index.html} จากโฟลเดอร์ที่สนใจ ด้วยเบราว์เซอร์ที่รองรับ
+            \begin{enumerate}
+                \item แนะนำ:{\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
+            \end{enumerate}
+        \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ จะอยู่ที่โฟลเดอร์ normal/asset/js/bundle.js และ instrumented/asset/js/bundle.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ
+        \item ใช้ JavaScript ผ่านเฟรมเวอร์ที่ชื่อว่า jQuery ซึ่งจะรองรับเบราว์เซอร์ดังนี้
+            \begin{enumerate}
+                \item Internet Explorer เวอร์ชั่น 9 หรือใหม่กว่า
+                \item Google Chrome เวอร์ชั่นปัจจุบัน
+                \item Firefox เวอร์ชั่นปัจจุบัน
+                \item Safari เวอร์ชัน 5.1 หรือใหม่กว่า 
+                \item Opera เวอร์ชั่นปัจจุบัน 
+                \item iOS เวอร์ชั่น 6.1 หรือใหม่กว่า
+                \item Android เวอร์ชั่น 2.3 และ 4.0 หรือใหม่กว่า
+            \end{enumerate}
+    \end{enumerate}
+
+    \begin{figure}[h!]
+        \label{fig:application}
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/application.png}
+        \caption{หน้าต่างโปรแกรม}
+    \end{figure}
+
+    \begin{figure}[h!]
+        \label{fig:instrumented}
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/instrumented.png}
+        \caption{หน้าต่างโปรแกรมหลังจากตรวจด้านของรูปสามเหลี่ยมที่นำเข้า}
+    \end{figure}
+
 % Triangle check
+\clearpage
 \section{โปรแกรมคำนวณรูปสามเหลี่ยม}
 \label{listing:trianglecal}
 จากรายการความต้องการเพื่อตรวจสอบรูปสามเหลี่ยม จะนำมาเขียนโปรแกรมด้วยภาษา JavaScript ดังแสดงให้เห็นด้านล่าง
@@ -95,5 +134,6 @@
             \end{tabular}
         \end{center}
     \end{table}
+
 \end{landscape}
 \end{document}
