@@ -5,7 +5,7 @@
     <title>Triagle</title>
     
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./asset/css/bundle.js">
+    <link rel="stylesheet" href="./asset/js/bundle.js">
     <style>
         body {
             padding-top: 80px;
@@ -22,28 +22,51 @@
         </div>
     </nav>
 
-    <form class="form-horizontal col-sm-offset-2 col-sm-8" action="">
+    <form id="triangle-calculator" class="form-horizontal col-sm-offset-2 col-sm-8">
+
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="value_a">a:</label>
-            <div class="col-sm-4">
-                <input id="value_a" class="form-control" type="number" placeholder="A">
+            <label class="col-sm-2 control-label" for="value_a">ด้าน a:</label>
+
+            <div class="col-sm-4 input-group input-group-lg">
+                <div class="input-group">
+                    <span class="input-group-addon">#</span>
+                    <input class="form-control" type="number" placeholder="A" name="a_number" id="a_number" required>
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="value_b">b:</label>
-            <div class="col-sm-4">
-                <input id="value_b" class="form-control" type="number" placeholder="B">
+            <label class="col-sm-2 control-label" for="value_a">ด้าน b:</label>
+
+            <div class="col-sm-4 input-group input-group-lg">
+                <div class="input-group">
+                    <span class="input-group-addon">#</span>
+                    <input class="form-control" type="number" placeholder="B" name="b_number" id="b_number" required>
+                </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label" for="value_c">c:</label>
-            <div class="col-sm-4">
-                <input id="value_c" class="form-control" type="number" placeholder="C">
+            <label class="col-sm-2 control-label" for="value_a">ด้าน C:</label>
+
+            <div class="col-sm-4 input-group input-group-lg">
+                <div class="input-group">
+                    <span class="input-group-addon">#</span>
+                    <input class="form-control" type="number" placeholder="C" name="c_number" id="c_number" required>
+                </div>
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2 input-group input-group-lg">
+                <button type="submit" id="calculate_sides" class="btn btn-default" value="คำนวณ">คำนวณ</button>
+            </div>
+        </div>
+
     </form>
+
+    <div id="triangle-calculator-result" class="form-horizontal col-sm-offset-2 col-sm-8">
+    </div>
 
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
