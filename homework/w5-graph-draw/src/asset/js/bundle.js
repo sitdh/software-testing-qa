@@ -15,7 +15,7 @@ $(window).ready(function(){
 
             if ( a == b && a == c ) {
                 triangleType = 'Isoscelene';
-            } else if ( a 
+            }
         }
 
 
