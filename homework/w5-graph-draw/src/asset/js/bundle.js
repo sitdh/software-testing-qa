@@ -10,7 +10,7 @@ $(window).ready(function(){
         var b = parseInt( $('#b_number').val() );
         var c = parseInt( $('#c_number').val() );
 
-        if ( ( a < 0 || a > 200 ) && ( b < 0 || b > 200 ) && ( c < 0 || c > 200 ) ) {
+        if ( ( a < 0 || a > 200 ) || ( b < 0 || b > 200 ) || ( c < 0 || c > 200 ) ) {
             triangleType = 'Some input value is out of range';
         } else {
 
