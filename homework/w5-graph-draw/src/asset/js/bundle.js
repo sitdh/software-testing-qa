@@ -14,12 +14,17 @@ $(window).ready(function(){
             isTriagle = true;
 
             if ( a == b && a == c ) {
-                triangleType = 'Isoscelene';
+                triangleType = 'Equilateral';
+            } else if ( a != b && b != c && c != a ) {
+                triangleType = 'Scalene';
+            } else {
+                triangleType = 'Isoscalene';
             }
         }
 
-
-        console.log('a ' + a);
-        console.log('a ' + triangleType);
+        $('#log-msg').append('Triangle type: ' + triangleType + "\n");
+        // 
+        // Code end here
+        // 
     });
 });
