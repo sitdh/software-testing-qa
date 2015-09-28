@@ -4,22 +4,24 @@ $(window).ready(function(){
         //
         // Code start here
         //
-        var isTriangle = false;
         var triangleType = 'Not a triangle';
-        var a = $('#a_number').val();
-        var b = $('#b_number').val();
-        var c = $('#c_number').val();
+
+        var a = parseInt( $('#a_number').val() );
+        var b = parseInt( $('#b_number').val() );
+        var c = parseInt( $('#c_number').val() );
 
         if ( a <= b + c && b <= a + c && c <= a + b ) {
-            isTriagle = true;
 
             if ( a == b && a == c ) {
                 triangleType = 'Equilateral';
             } else if ( a != b && b != c && c != a ) {
                 triangleType = 'Scalene';
+                console.log('b');
             } else {
                 triangleType = 'Isoscalene';
             }
+
+            console.log('a');
         }
 
         $('#log-msg').append('Triangle type: ' + triangleType + "\n");
