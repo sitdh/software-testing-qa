@@ -78,12 +78,15 @@
     \label{table:coveragetable}
     \begin{center}
         % ID, Path, Decisionx3, Inputx3, Expected output = 9 cols
-        \begin{tabular}[p]{ | c | l | *{6}{c|} l |}
+        \begin{tabular}[p]{ | c | l | *{7}{c|} l |}
             \hline
-            \multirow{2}{*}{ID} & \multicolumn{1}{c}{\multirow{2}{*}{Path}} & \multicolumn{3}{|c|}{Decision} & \multicolumn{3}{|c|}{Input} & \multicolumn{1}{c|}{\multirow{2}{*}{Expected Output}} \\ \cline{3-8}
-                               & & 5 & 6 & 8 & a & b & c & \\ \hline
-            1 & 1-2-3-4-5-14        & F & - & - & 1   & 200 & 200 & \nottriangle    \\ \hline
-            2 & 1-2-3-4-5-6-7-13-14 & T & T & - & 100 & 100 & 100 & \equ            \\ \hline
+            \multirow{2}{*}{ID} & \multicolumn{1}{c}{\multirow{2}{*}{Path}} & \multicolumn{4}{|c|}{Decision} & \multicolumn{3}{|c|}{Input} & \multicolumn{1}{c|}{\multirow{2}{*}{Expected Output}} \\ \cline{3-8}
+                                & & 5 & 8 & 9 & 11 & a & b & c & \\ \hline
+            1 & 1-2-3-4-5-14        & F & - & - & - & 1   & 200 & 200 & \nottriangle    \\ \hline
+            2 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
+            3 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
+            4 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
+            4 & 1-2-3-4-5-6-7-13-14 & T & T & - & - & 100 & 100 & 100 & \equ            \\ \hline
         \end{tabular}
     \end{center}
 \end{table}
