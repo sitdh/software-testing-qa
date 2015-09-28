@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Triangle</title>
+    <title>Triangle - Instrumented</title>
     
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./asset/js/bundle.js">
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-brand">Triangle</span>
+                <span class="navbar-brand">Triangle - Instrumented</span>
             </div>
         </div>
     </nav>
@@ -65,11 +65,18 @@
 
     </form>
 
-    <div id="triangle-calculator-result" class="form-horizontal col-sm-offset-2 col-sm-8">
+    <div id="triangle-calculator-result" class="form-horizontal col-sm-offset-1 col-sm-4">
+        <div class="col-sm-7 col-sm-offset-1">
+            <h2>Log:</h2>
+        </div>
+        <div class="col-sm-7 col-sm-offset-1" id="log-msg"></div>
+    </div>
+
+    <div id="triangle-calculator-result" class="form-horizontal col-sm-offset-1 col-sm-4">
         <div class="col-sm-7 col-sm-offset-1">
             <h2>Result:</h2>
         </div>
-        <div class="col-sm-7 col-sm-offset-1" id="log-msg"></div>
+        <div class="col-sm-7 col-sm-offset-1" id="result-msg"></div>
     </div>
 
     <script src="./bower_components/jquery/dist/jquery.min.js"></script>
