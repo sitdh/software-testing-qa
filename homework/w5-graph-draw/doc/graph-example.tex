@@ -28,6 +28,8 @@
 \usepackage{array}
 % Landscape page
 \usepackage{pdflscape}
+% Title
+\usepackage{titleref}
 
 \newcommand{\sitdhibong}{สิทธิพงษ์ เหล่าโก้ก}
 \newcommand{\studentid}{5870972621}
@@ -41,6 +43,7 @@
 \newcommand{\equ}{Equilateral}
 \newcommand{\sca}{Scalene}
 \newcommand{\iso}{Isoscalene}
+\newcommand{\numbername}{ข้อ}
 
 \renewcommand{\lstlistingname}{รายการที่}
 \renewcommand{\figurename}{ภาพที่}
@@ -56,18 +59,21 @@
 
 \begin{document}
     \section{ข้อมูลทั่วไป}
+    \label{sec:general}
     \begin{enumerate}
-        \item สคริปต์จะแยกออกเป็น 2 โฟลเดอร์ ได้แก่
+        \item โปรแกรมตรวจสอบรูปสามเหลี่ยมนี้พัฒนาขึ้นโดยใช้ภาษา JavaScript และใช้ HTML ร่วมกันกับ CSS เพื่อแสดงผล
+        \item โปรแกรมจะแยกออกเป็น 2 โฟลเดอร์ ได้แก่
             \begin{enumerate}
-                \item โฟลเดอร์ {\bf normal} สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
-                \item โฟลเดอร์ {\bf instrumented} สำหรับตรวจสอบการทำงานของ Test case
+                \item {\bf normal} สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
+                \item {\bf instrumented} สำหรับตรวจสอบการทำงานของ Test case
             \end{enumerate}
-        \item เรียกใช้งานโปรแกรมได้ด้วยการเปิดไฟล์ {\bf index.html} จากโฟลเดอร์ที่สนใจ ด้วยเบราว์เซอร์ที่รองรับ
+        \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ จะอยู่ที่โฟลเดอร์ normal/asset/js/bundle.js และ instrumented/asset/js/bundle.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ \label{enu:js}
+        \item โค้ดที่นำมาแสดงใน \numbername~\ref{sec:trianglecal}~{\bf \titleref{sec:trianglecal}} คือโค้ดที่มาจากไฟล์ {\bf normal/asset/js/bundle.js} แต่ตัดช่องว่างระหว่างบรรทัดออก เพื่อให้วาด Control Flow Graph ได้กระชับมากยิ่งขึ้น
+        \item วิธีการเรียกใช้งานทำได้ด้วยการเปิดไฟล์ {\bf index.html} ที่อยู่ภายในชั้นบนสุดของโฟลเดอร์ที่สนใจ ผ่านเบราว์เซอร์ที่รองรับ
             \begin{enumerate}
-                \item แนะนำ:{\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
+                \item แนะนำ: {\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
             \end{enumerate}
-        \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ จะอยู่ที่โฟลเดอร์ normal/asset/js/bundle.js และ instrumented/asset/js/bundle.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ
-        \item ใช้ JavaScript ผ่านเฟรมเวอร์ที่ชื่อว่า jQuery ซึ่งจะรองรับเบราว์เซอร์ดังนี้
+        \item สคริปต์ในข้อ~\ref{enu:js} จะใช้งานร่วมกันกับ JavaScript Framework ที่ชื่อว่า jQuery ซึ่งจะรองรับเบราว์เซอร์ดังนี้
             \begin{enumerate}
                 \item Internet Explorer เวอร์ชั่น 9 หรือใหม่กว่า
                 \item Google Chrome เวอร์ชั่นปัจจุบัน
@@ -79,52 +85,52 @@
             \end{enumerate}
     \end{enumerate}
 
-    \sitdhibong\, \studentid \newline 
-    \myprogram\, \department \hfill\break
-    \faculty
+    \sitdhibong\, \studentid \hfill\newline
+    \myprogram\, \hfill\newline
+    \department\, \faculty
 
     \begin{figure}[ht!]
-        \label{fig:application}
         \centering
         \includegraphics[width=0.9\textwidth]{img/application.png}
-        \caption{หน้าต่างโปรแกรม}
+        \caption{หน้าต่างโปรแกรม\label{fig:application}}
     \end{figure}
 
     \begin{figure}[ht!]
-        \label{fig:instrumented}
         \centering
         \includegraphics[width=0.9\textwidth]{img/instrumented.png}
-        \caption{หน้าต่างโปรแกรมหลังจากตรวจด้านของรูปสามเหลี่ยมที่นำเข้า}
+        \caption{หน้าต่างโปรแกรมหลังจากตรวจด้านของรูปสามเหลี่ยมที่นำเข้า\label{fig:instrumented}}
     \end{figure}
 
 % Triangle check
-\clearpage
 \newpage
-\section{โปรแกรมคำนวณรูปสามเหลี่ยม}
-\label{listing:trianglecal}
+\clearpage
+\section[โปรแกรมคำนวณรูปสามเหลี่ยม]{โปรแกรมคำนวณรูปสามเหลี่ยม}
+\label{sec:trianglecal}
 จากรายการความต้องการเพื่อตรวจสอบรูปสามเหลี่ยม จะนำมาเขียนโปรแกรมด้วยภาษา JavaScript ดังแสดงให้เห็นด้านล่าง
 \lstinputlisting[style=sitdhcodelisting, title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript]{src/compute.js}
 
 \newpage
 % Control flow graph
+\clearpage
 \section{Control flow graph}
-จากโปรแกรมคำนวณรูปสามเหลี่ยมจาก \lstlistingname\, \ref{listing:trianglecal} นำมาวาด Control flow graph ได้ดังรูปด้านล่าง
+จากโปรแกรมคำนวณรูปสามเหลี่ยมจาก \numbername~\ref{sec:trianglecal} นำมาวาด Control flow graph ได้ดังรูปด้านล่าง
 
 \begin{figure}[h!]
     \label{fig:flowgraph}
     \centering
     \includegraphics[height=0.8\textheight]{img/graph-testing.eps}
-    \caption{Control flow graph ของโปรแกรมตรวจสอบรูปสามเหลี่ยมจาก \lstlistingname\, \ref{listing:trianglecal}}
+    \caption{Control flow graph ของโปรแกรมตรวจสอบรูปสามเหลี่ยมจาก \lstlistingname\, \ref{sec:trianglecal}}
 \end{figure}
 
 \newpage
-\begin{landscape}
 % Coverage table
+\clearpage
+\begin{landscape}
     \section{Coverage table}
-
+    \label{sec:coveragetable}
     \begin{table}[hb!]
         \caption{Coverage Table}
-        \label{table:coveragetable}
+        \label{tab:coveragetable}
         \begin{center}
             % ID, Path, Decisionx3, Inputx3, Expected output = 9 cols
             \begin{tabular}[p]{ | c | l | *{7}{c|} l |}
