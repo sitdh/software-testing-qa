@@ -63,18 +63,18 @@
     \begin{enumerate}
         \item โปรแกรมตรวจสอบรูปสามเหลี่ยมนี้พัฒนาขึ้นโดยใช้ภาษา JavaScript และใช้ HTML ร่วมกันกับ CSS เพื่อแสดงผล
         \item สคริปต์ที่พัฒนาขึ้นทั้งหมดอยู่ภายในโฟลเดอร์ path-testing ซึ่งแยกออกเป็น 2 ไฟล์หลัก ได้แก่
-            \begin{enumerate}
+            \begin{itemize}
                 \item {\bf index.html} ซึ่งเรียกไฟล์ asset/js/bundle.js สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
                 \item {\bf index-instrumented.html} ซึ่งเรียกไฟล์ asset/js/bundle-instrumented.js สำหรับตรวจสอบการทำงานของ Test case
-            \end{enumerate}
+            \end{itemize}
         \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ทั้ง asset/js/bundle.js และ asset/js/bundle-instrumented.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ \label{enu:js}
         \item โค้ดที่นำมาแสดงใน \numbername~\ref{sec:trianglecal}~{\bf \titleref{sec:trianglecal}} คือโค้ดที่มาจากไฟล์ {\bf asset/js/bundle.js} แต่ตัดช่องว่างระหว่างบรรทัดออก เพื่อให้วาด Control Flow Graph ได้กระชับมากยิ่งขึ้น
         \item วิธีการเรียกใช้งานทำได้ด้วยการเปิดไฟล์ {\bf index-instrumented.html} ที่อยู่ด้านบนสุดของโฟลเดอร์งาน ผ่านเบราว์เซอร์ที่รองรับ เพื่อเริ่มตรวจสอบกรณีทดสอบ
-            \begin{enumerate}
+            \begin{itemize}
                 \item แนะนำ: {\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
-            \end{enumerate}
+            \end{itemize}
         \item สคริปต์ในข้อ~\ref{enu:js} จะใช้งานร่วมกันกับ JavaScript Framework ที่ชื่อว่า jQuery ซึ่งจะรองรับเบราว์เซอร์ดังนี้
-            \begin{enumerate}
+            \begin{itemize}
                 \item Internet Explorer เวอร์ชั่น 9 หรือใหม่กว่า
                 \item Google Chrome เวอร์ชั่นปัจจุบัน
                 \item Firefox เวอร์ชั่นปัจจุบัน
@@ -82,11 +82,11 @@
                 \item Opera เวอร์ชั่นปัจจุบัน 
                 \item iOS เวอร์ชั่น 6.1 หรือใหม่กว่า
                 \item Android เวอร์ชั่น 2.3 และ 4.0 หรือใหม่กว่า
-            \end{enumerate}
+            \end{itemize}
     \end{enumerate}
-
-    \sitdhibong\, \studentid \hfill\newline
-    \myprogram\, \hfill\newline
+    \vfill
+    \noindent\sitdhibong\, \studentid \newline
+    \myprogram\, \newline
     \department\, \faculty
 
     \begin{figure}[ht!]
