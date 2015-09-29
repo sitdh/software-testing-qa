@@ -62,14 +62,14 @@
     \label{sec:general}
     \begin{enumerate}
         \item โปรแกรมตรวจสอบรูปสามเหลี่ยมนี้พัฒนาขึ้นโดยใช้ภาษา JavaScript และใช้ HTML ร่วมกันกับ CSS เพื่อแสดงผล
-        \item โปรแกรมจะแยกออกเป็น 2 โฟลเดอร์ ได้แก่
+        \item สคริปต์ที่พัฒนาขึ้นทั้งหมดอยู่ภายในโฟลเดอร์ path-testing ซึ่งแยกออกเป็น 2 ไฟล์หลัก ได้แก่
             \begin{enumerate}
-                \item {\bf normal} สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
-                \item {\bf instrumented} สำหรับตรวจสอบการทำงานของ Test case
+                \item {\bf index.html} ซึ่งเรียกไฟล์ asset/js/bundle.js สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
+                \item {\bf index-instrumented.html} ซึ่งเรียกไฟล์ asset/js/bundle-instrumented.js สำหรับตรวจสอบการทำงานของ Test case
             \end{enumerate}
-        \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ จะอยู่ที่โฟลเดอร์ normal/asset/js/bundle.js และ instrumented/asset/js/bundle.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ \label{enu:js}
-        \item โค้ดที่นำมาแสดงใน \numbername~\ref{sec:trianglecal}~{\bf \titleref{sec:trianglecal}} คือโค้ดที่มาจากไฟล์ {\bf normal/asset/js/bundle.js} แต่ตัดช่องว่างระหว่างบรรทัดออก เพื่อให้วาด Control Flow Graph ได้กระชับมากยิ่งขึ้น
-        \item วิธีการเรียกใช้งานทำได้ด้วยการเปิดไฟล์ {\bf index.html} ที่อยู่ภายในชั้นบนสุดของโฟลเดอร์ที่สนใจ ผ่านเบราว์เซอร์ที่รองรับ
+        \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ทั้ง asset/js/bundle.js และ asset/js/bundle-instrumented.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ \label{enu:js}
+        \item โค้ดที่นำมาแสดงใน \numbername~\ref{sec:trianglecal}~{\bf \titleref{sec:trianglecal}} คือโค้ดที่มาจากไฟล์ {\bf asset/js/bundle.js} แต่ตัดช่องว่างระหว่างบรรทัดออก เพื่อให้วาด Control Flow Graph ได้กระชับมากยิ่งขึ้น
+        \item วิธีการเรียกใช้งานทำได้ด้วยการเปิดไฟล์ {\bf index-instrumented.html} ที่อยู่ด้านบนสุดของโฟลเดอร์งาน ผ่านเบราว์เซอร์ที่รองรับ เพื่อเริ่มตรวจสอบกรณีทดสอบ
             \begin{enumerate}
                 \item แนะนำ: {\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
             \end{enumerate}
@@ -127,6 +127,7 @@
 \clearpage
 \begin{landscape}
     \section{Coverage table}
+    จากกราฟใน~\numbername~\ref{fig:flowgraph} นำมาสร้าง Control Flow Graph ได้ดัง~\tablename~\ref{tab:coveragetable} ด้านล่าง
     \label{sec:coveragetable}
     \begin{table}[hb!]
         \caption{Coverage Table}
