@@ -15,4 +15,4 @@ if ((a<0 || a>200) || (b<0 || b>200 ) || (c<0 || c>200)) {
         triangleType = 'Isoscalene';
     }
 }
-$('#log-msg').append('Triangle type: ' + triangleType + "\n");
+$('#log-msg').append('Triangle type: ' + triangleType + "<br>");
