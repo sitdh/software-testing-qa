@@ -102,7 +102,7 @@
        \caption{หน้าต่างโปรแกรมหลังจากตรวจด้านของรูปสามเหลี่ยมที่นำเข้า\label{fig:instrumented}}
    \end{figure}
 
-Triangle check
+% Triangle check
 \newpage
 \clearpage
 \section[โปรแกรมคำนวณรูปสามเหลี่ยม]{โปรแกรมคำนวณรูปสามเหลี่ยม}
@@ -140,10 +140,10 @@ Triangle check
                 \multirow{2}{*}{ID} & \multicolumn{1}{c}{\multirow{2}{*}{Path}} & \multicolumn{5}{|c|}{Decision} & \multicolumn{3}{|c|}{Inputs} & \multicolumn{1}{c|}{\multirow{2}{*}{Expected Output}} \\ \cline{3-10}
                                     &                                                   & 5  & 7  & 8  & 10 & 12 & a   & b   & c   &                \\ \hline
                 1 & 1-2-3-4-5-6-18                                                      & T  & -  & -  & -  & -  & 201 & 201 & 201 & \outbound      \\ \hline
-                2 & 1-2-3-4-$\bar{5}$-$\bar{7}$-16-17                                   & F  & F  & -  & -  & -  & 100 &   1 &   1 & \nottriangle   \\ \hline
-                3 & 1-2-3-4-$\bar{5}$-7-8-9-16-17                                       & F  & T  & T  & -  & -  & 100 & 100 & 100 & \equ           \\ \hline
-                4 & 1-2-3-4-$\bar{5}$-7-$\bar{8}$-10-11-16-17                           & F  & T  & F  & T  & -  &   1 &   2 &   3 & \sca           \\ \hline
-                5 & 1-2-3-4-$\bar{5}$-7-$\bar{8}$-$\bar{10}$-12-13-16-17-18             & F  & T  & F  & F  & T  &   3 &   4 &   5 & \righttri      \\ \hline
+                2 & 1-2-3-4-$\bar{5}$-$\bar{7}$-16-17-18                                & F  & F  & -  & -  & -  & 100 &   1 &   1 & \nottriangle   \\ \hline
+                3 & 1-2-3-4-$\bar{5}$-7-8-9-16-17-18                                    & F  & T  & T  & -  & -  & 100 & 100 & 100 & \equ           \\ \hline
+                4 & 1-2-3-4-$\bar{5}$-7-$\bar{8}$-10-11-16-17-18                        & F  & T  & F  & T  & -  &   5 &   4 &   3 & \righttri      \\ \hline
+                5 & 1-2-3-4-$\bar{5}$-7-$\bar{8}$-$\bar{10}$-12-13-16-17-18             & F  & T  & F  & F  & T  &   1 &   2 &   3 & \sca           \\ \hline
                 6 & 1-2-3-4-$\bar{5}$-7-$\bar{8}$-$\bar{10}$-$\bar{12}$-14-15-16-17-18  & F  & T  & F  & F  & F  & 100 & 100 &  50 & \iso           \\ \hline
             \end{tabular}
         \end{center}
