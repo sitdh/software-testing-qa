@@ -20,6 +20,8 @@ $(window).ready(function(){
                     triangleType = 'Equilateral';
                 } else if ( a != b && b != c && c != a ) {
                     triangleType = 'Scalene';
+                } else if ( a*a == b*b + c*c || b*b == c*c + a*a || c*c == a*a + b*b ) {
+                    triangleType = 'Right Triangle';
                 } else {
                     triangleType = 'Isoscalene';
                 }
