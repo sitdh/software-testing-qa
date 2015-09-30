@@ -23,13 +23,13 @@ $(window).ready(function(){
                 $('#log-msg').append('Sides are equal<br>');
                 triangleType = 'Equilateral';
 
-            } else if ( a != b && b != c && c != a ) {
-                $('#log-msg').append("Sides arrn't equal<br>");
-                triangleType = 'Scalene';
-
             } else if ( a*a == b*b + c*c || b*b == c*c + a*a || c*c == a*a + b*b ) {
                 $('#log-msg').append("Pythagorus check<br>");
                 triangleType = 'Right Triangle';
+
+            } else if ( a != b && b != c && c != a ) {
+                $('#log-msg').append("Sides arrn't equal<br>");
+                triangleType = 'Scalene';
 
             } else {
                 $('#log-msg').append("2 sides equal, but one<br>");
