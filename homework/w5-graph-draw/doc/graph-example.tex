@@ -19,6 +19,15 @@
     numbers=left,   
     firstline=1
 }
+\lstdefinestyle{sitdhcodelistinginstruemented}{
+    frame=trBL,
+    label=trianglecheckinstrumented,
+    showspaces=false,
+    numberstyle=\tiny, 
+    language=Java, 
+    numbers=left,   
+    firstline=1
+}
 
 % Graphic
 \usepackage{graphicx}
@@ -109,6 +118,13 @@
 \label{sec:trianglecal}
 จากรายการความต้องการเพื่อตรวจสอบรูปสามเหลี่ยม จะนำมาเขียนโปรแกรมด้วยภาษา JavaScript ดังแสดงให้เห็นด้านล่าง
 \lstinputlisting[style=sitdhcodelisting, title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript]{src/compute.js}
+
+\newpage
+\clearpage
+\section[โปรแกรมคำนวณรูปสามเหลี่ยมใส่คำอธิบาย]{โปรแกรมคำนวณรูปสามเหลี่ยมพร้อมใส่โค้ดพิเศษแสดงการทำงาน}
+\label{sec:trianglecalinstrumented}
+นำโค้ดจาก \numbername~\ref{sec:trianglecal} มาใส่โค้ดพิเศษเพื่อแสดงให้เห็นว่าโปรแกรมได้ทำงานทุกส่วนของโปรแกรม
+\lstinputlisting[style=sitdhcodelistinginstruemented, title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript - Instruemented]{src/compute-instrumented.js}
 
 \newpage
 % Control flow graph
