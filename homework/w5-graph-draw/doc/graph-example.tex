@@ -8,25 +8,16 @@
 \setmainfont[Scale=1.22]{TH Sarabun New}
 \XeTeXlinebreaklocale 'th_TH'
 
+\author{\sitdhibong}
+
 % Source code
 \usepackage{listings}
 \lstdefinestyle{sitdhcodelisting}{
     frame=trBL,
-    label=trianglecheck,
     showspaces=false,
     numberstyle=\tiny, 
     language=Java, 
-    numbers=left,   
-    firstline=1
-}
-\lstdefinestyle{sitdhcodelistinginstruemented}{
-    frame=trBL,
-    label=trianglecheckinstrumented,
-    showspaces=false,
-    numberstyle=\tiny, 
-    language=Java, 
-    numbers=left,   
-    firstline=1
+    numbers=left
 }
 
 % Graphic
@@ -68,63 +59,69 @@
 \lstset{columns=fullflexible,basicstyle=\ttfamily}
 
 \begin{document}
-   \section{ข้อมูลทั่วไป}
-   \label{sec:general}
-   \begin{enumerate}
-       \item โปรแกรมตรวจสอบรูปสามเหลี่ยมนี้พัฒนาขึ้นโดยใช้ภาษา JavaScript และใช้ HTML ร่วมกันกับ CSS เพื่อแสดงผล
-       \item สคริปต์ที่พัฒนาขึ้นทั้งหมดอยู่ภายในโฟลเดอร์ path-testing ซึ่งแยกออกเป็น 2 ไฟล์หลัก ได้แก่
-           \begin{itemize}
-               \item {\bf index.html} ซึ่งเรียกไฟล์ asset/js/bundle.js สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
-               \item {\bf index-instrumented.html} ซึ่งเรียกไฟล์ asset/js/bundle-instrumented.js สำหรับตรวจสอบการทำงานของ Test case
-           \end{itemize}
-       \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ทั้ง asset/js/bundle.js และ asset/js/bundle-instrumented.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ \label{enu:js}
-       \item โค้ดที่นำมาแสดงใน \numbername~\ref{sec:trianglecal}~{\bf \titleref{sec:trianglecal}} คือโค้ดที่มาจากไฟล์ {\bf asset/js/bundle.js} แต่ตัดช่องว่างระหว่างบรรทัดออก เพื่อให้วาด Control Flow Graph ได้กระชับมากยิ่งขึ้น
-       \item วิธีการเรียกใช้งานทำได้ด้วยการเปิดไฟล์ {\bf index-instrumented.html} ที่อยู่ด้านบนสุดของโฟลเดอร์งาน ผ่านเบราว์เซอร์ที่รองรับ เพื่อเริ่มตรวจสอบกรณีทดสอบ
-           \begin{itemize}
-               \item แนะนำ: {\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
-           \end{itemize}
-       \item สคริปต์ในข้อ~\ref{enu:js} จะใช้งานร่วมกันกับ JavaScript Framework ที่ชื่อว่า jQuery ซึ่งจะรองรับเบราว์เซอร์ดังนี้
-           \begin{itemize}
-               \item Internet Explorer เวอร์ชั่น 9 หรือใหม่กว่า
-               \item Google Chrome เวอร์ชั่นปัจจุบัน
-               \item Firefox เวอร์ชั่นปัจจุบัน
-               \item Safari เวอร์ชัน 5.1 หรือใหม่กว่า 
-               \item Opera เวอร์ชั่นปัจจุบัน 
-               \item iOS เวอร์ชั่น 6.1 หรือใหม่กว่า
-               \item Android เวอร์ชั่น 2.3 และ 4.0 หรือใหม่กว่า
-           \end{itemize}
-   \end{enumerate}
-   \vfill
-   \noindent\sitdhibong\, \studentid \newline
-   \myprogram\, \newline
-   \department\, \faculty
-
-   \begin{figure}[ht!]
-       \centering
-       \includegraphics[width=0.9\textwidth]{img/application.png}
-       \caption{หน้าต่างโปรแกรม\label{fig:application}}
-   \end{figure}
-
-   \begin{figure}[ht!]
-       \centering
-       \includegraphics[width=0.9\textwidth]{img/instrumented.png}
-       \caption{หน้าต่างโปรแกรมหลังจากตรวจด้านของรูปสามเหลี่ยมที่นำเข้า\label{fig:instrumented}}
-   \end{figure}
-
-% Triangle check
-\newpage
-\clearpage
+%    \section{ข้อมูลทั่วไป}
+%    \label{sec:general}
+%    \begin{enumerate}
+%        \item โปรแกรมตรวจสอบรูปสามเหลี่ยมนี้พัฒนาขึ้นโดยใช้ภาษา JavaScript และใช้ HTML ร่วมกันกับ CSS เพื่อแสดงผล
+%        \item สคริปต์ที่พัฒนาขึ้นทั้งหมดอยู่ภายในโฟลเดอร์ path-testing ซึ่งแยกออกเป็น 2 ไฟล์หลัก ได้แก่
+%            \begin{itemize}
+%                \item {\bf index.html} ซึ่งเรียกไฟล์ asset/js/bundle.js สำหรับโค้ดที่ใช้วาด Control Flow Graph แบบปรกติ
+%                \item {\bf index-instrumented.html} ซึ่งเรียกไฟล์ asset/js/bundle-instrumented.js สำหรับตรวจสอบการทำงานของ Test case
+%            \end{itemize}
+%        \item ไฟล์ JavaScript ที่พัฒนาขึ้นมานี้ทั้ง asset/js/bundle.js และ asset/js/bundle-instrumented.js สำหรับโค้ดแบบปรกติ และโค้ดที่ทำ Instrument แล้ว ตามลำดับ \label{enu:js}
+%        \item โค้ดที่นำมาแสดงใน \numbername~\ref{sec:trianglecal}~{\bf \titleref{sec:trianglecal}} คือโค้ดที่มาจากไฟล์ {\bf asset/js/bundle.js} แต่ตัดช่องว่างระหว่างบรรทัดออก เพื่อให้วาด Control Flow Graph ได้กระชับมากยิ่งขึ้น
+%        \item วิธีการเรียกใช้งานทำได้ด้วยการเปิดไฟล์ {\bf index-instrumented.html} ที่อยู่ด้านบนสุดของโฟลเดอร์งาน ผ่านเบราว์เซอร์ที่รองรับ เพื่อเริ่มตรวจสอบกรณีทดสอบ
+%            \begin{itemize}
+%                \item แนะนำ: {\bf Firefox, Safari หรือ Google Chrome เวอร์ชันล่าสุด}
+%            \end{itemize}
+%        \item สคริปต์ในข้อ~\ref{enu:js} จะใช้งานร่วมกันกับ JavaScript Framework ที่ชื่อว่า jQuery ซึ่งจะรองรับเบราว์เซอร์ดังนี้
+%            \begin{itemize}
+%                \item Internet Explorer เวอร์ชั่น 9 หรือใหม่กว่า
+%                \item Google Chrome เวอร์ชั่นปัจจุบัน
+%                \item Firefox เวอร์ชั่นปัจจุบัน
+%                \item Safari เวอร์ชัน 5.1 หรือใหม่กว่า 
+%                \item Opera เวอร์ชั่นปัจจุบัน 
+%                \item iOS เวอร์ชั่น 6.1 หรือใหม่กว่า
+%                \item Android เวอร์ชั่น 2.3 และ 4.0 หรือใหม่กว่า
+%            \end{itemize}
+%    \end{enumerate}
+%    \vfill
+%    \noindent\sitdhibong\, \studentid \newline
+%    \myprogram\, \newline
+%    \department\, \faculty
+% 
+%    \begin{figure}[ht!]
+%        \centering
+%        \includegraphics[width=0.9\textwidth]{img/application.png}
+%        \caption{หน้าต่างโปรแกรม\label{fig:application}}
+%    \end{figure}
+% 
+%    \begin{figure}[ht!]
+%        \centering
+%        \includegraphics[width=0.9\textwidth]{img/instrumented.png}
+%        \caption{หน้าต่างโปรแกรมหลังจากตรวจด้านของรูปสามเหลี่ยมที่นำเข้า\label{fig:instrumented}}
+%    \end{figure}
+% 
+% % Triangle check
+% \newpage
+% \clearpage
 \section[โปรแกรมคำนวณรูปสามเหลี่ยม]{โปรแกรมคำนวณรูปสามเหลี่ยม}
 \label{sec:trianglecal}
 จากรายการความต้องการเพื่อตรวจสอบรูปสามเหลี่ยม จะนำมาเขียนโปรแกรมด้วยภาษา JavaScript ดังแสดงให้เห็นด้านล่าง
-\lstinputlisting[style=sitdhcodelisting, title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript]{src/compute.js}
+\lstinputlisting[style=sitdhcodelisting, label=lst:trianglecheck lsttitle=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript]{src/compute.js}
+
+% My information
+\vfill
+\noindent\sitdhibong\, \studentid \newline
+\myprogram\, \newline
+\department\, \faculty
 
 \newpage
 \clearpage
 \section[โปรแกรมคำนวณรูปสามเหลี่ยมใส่คำอธิบาย]{โปรแกรมคำนวณรูปสามเหลี่ยมพร้อมใส่โค้ดพิเศษแสดงการทำงาน}
 \label{sec:trianglecalinstrumented}
 นำโค้ดจาก \numbername~\ref{sec:trianglecal} มาใส่โค้ดพิเศษเพื่อแสดงให้เห็นว่าโปรแกรมได้ทำงานทุกส่วนของโปรแกรม
-\lstinputlisting[style=sitdhcodelistinginstruemented, title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript - Instruemented]{src/compute-instrumented.js}
+\lstinputlisting[style=sitdhcodelisting, label=lst:trianglecheckinst title=\lstname, caption=โปรแกรมตรวจสอบรูปสามเหลี่ยมภาษา JavaScript - Instruemented]{src/compute-instrumented.js}
 
 \newpage
 % Control flow graph
